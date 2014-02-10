@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Guitar and Bass Scale Calculator</title>
+  <link rel="stylesheet" href="styles/jquery-mobile.css">
+  <style type="text/css">
+  .fret-pos { text-align:right; border-left: 1px solid gray; border-right: 1px solid gray; padding:0.2em 1em;}
+  .list-title { text-align:center; border-top: 1px solid gray; margin-top:5px;}
+  </style>
+  <script data-main="scripts/main" src="scripts/libs/require.js"></script>
+</head>
+<body>
+  <div data-role="page" data-theme="a">
+     <div data-role="header" data-position="inline">
+        <h1>Guitar and Bass Scale Calculator</h1>
+    </div>
+    <div data-role="content" data-theme="a">
+
+        <div data-role="collapsible" data-collapsed="false">
+            <h2>Options</h2>
+
+            <form action="#" method="get" id="form_options">
+
+                <p>Use this form to select the initial parametersto calculate the scale</p>
+
+
+                <div data-role="fieldcontain">
+                    <label for="id_scale">scale distance:</label>
+                    <input type="text" name="scale" id="id_scale" value="650"  />
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="id_frets">frets:</label>
+                    <input type="range" name="frets" id="id_frets" value="22" min="1" max="36" data-highlight="true"  />
+                 </div>
+
+
+                 <div class="ui-body ui-body-b">
+                     <fieldset class="ui-grid-a">
+                        <div class="ui-block-a">&nbsp;</div>
+                        <div class="ui-block-b"><button type="submit" data-theme="a">Calculate</button></div>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <div id="list-container"></div>
+     <button type="button" id="print-btn">Print Scale</button>
+ </div>
+
+
+</div>
+
+<script id="list-template" type="text/x-handlebars-template">
+    <ul data-role="listview" data-inset="true" data-divider-theme="a" id="id_scalelist">
+        <li data-role="list-divider" >
+            Frets
+            <div class="ui-grid-b">
+                <div class="ui-block-a list-title">position</div>
+                <div class="ui-block-b list-title">from nut</div>
+                <div class="ui-block-c list-title">fret length</div>
+            </div>
+        </li>
+    {{#each rows}}
+        <li>
+            <div class="ui-grid-b">
+                <div class="ui-block-a fret-pos">{{this.pos}}</div>
+                <div class="ui-block-b fret-pos">{{this.len1}}</div>
+                <div class="ui-block-c fret-pos">{{this.len2}}</div>
+            </div>
+        </li>
+    {{/each}}
+    </ul>
+</script>
+<script id="row-template" type="text/x-handlebars-template">
+    <li>
+        <div class="ui-grid-b">
+            <div class="ui-block-a fret-pos">{{pos}}</div>
+            <div class="ui-block-b fret-pos">{{len1}}</div>
+            <div class="ui-block-c fret-pos">{{len2}}</div>
+        </div>
+    </li>
+</script>
+
+</body>
+</html>

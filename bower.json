@@ -1,0 +1,30 @@
+{
+  "name": "fret-calc",
+  "version": "0.1.0",
+  "dependencies": {
+    "handlebars": "~1.3.0"
+  },
+  "authors": [
+    "Esteban Soler <esteban@informalthinkers.com>"
+  ],
+  "description": "fret distance calculator",
+  "main": "index.html",
+  "keywords": [
+    "frets",
+    "guitar",
+    "bass",
+    "tempered",
+    "scale"
+  ],
+  "license": "MIT",
+  "homepage": "fret-calc.informalthinkers.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ]
+}
